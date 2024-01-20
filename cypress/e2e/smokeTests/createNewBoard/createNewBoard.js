@@ -53,12 +53,12 @@ Then("A new card will be created",()=>{
     createCardAssertions.checkCardIsContain(cardTitle)
 });
 
-// after(()=>{
-//     //sharedUtils.deleteBoard(boardId);
-//     cy.get("@boardResponse").then((response)=>{
-//         sharedUtils.deleteBoard(response.body.id);
+after(()=>{
+    //sharedUtils.deleteBoard(boardId);
+    cy.get("@boardResponse").then((response)=>{
+        sharedUtils.deleteBoard(response.body.id);
 
-//     });
+    });
 
 
-// });
+});
