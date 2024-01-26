@@ -8,6 +8,6 @@ module.exports = defineConfig({
      on("file:preprocessor", cucumber());
    },
    experimentalStudio:true,
-   trashAssetsBeforeRuns:true,
+   trashAssetsBeforeRuns:false,
  },
 });
