@@ -10,6 +10,8 @@ import MoveTemplateAssertions from "../../../pageObjects/moveTemplate/assertions
 let Random = Math.floor(Math.random()*100);
 const boardName ='Shahd Board'+Random;
 const templateTitle ='Shahd Template'+Random;
+const listTitleToMove= "Done";
+const listTitleMoveFrom="To Do";
 const sharedUtils= new SharedDataUtils();
 const sharedActions= new SharedActions();
 const createTemplateCardActions = new CreateTemplateCardActions();
@@ -45,7 +47,7 @@ When("Clicks on add button",()=>{
 
 });
 When("Clicks on template icon",()=>{
-    moveTemplateActions.clickOnTemplateIcon()
+    moveTemplateActions.clickOnTemplateIcon(templateTitle,listTitleMoveFrom)
 
 });
 When("Clicks on move option",()=>{
@@ -53,7 +55,7 @@ When("Clicks on move option",()=>{
 
 });
 When("Choose the list to move",()=>{
-    moveTemplateActions.chooseListToMove()
+    moveTemplateActions.chooseListToMove(listTitleToMove)
 
 });
 When("Clicks on move button",()=>{
@@ -61,5 +63,5 @@ When("Clicks on move button",()=>{
 
 });
 Then("Template is moved",()=>{
-    moveTemplateAssertions.checkTemplateCardNewList()
+    moveTemplateAssertions.checkTemplateCardNewList(templateTitle,listTitleToMove,listTitleMoveFrom)
 });

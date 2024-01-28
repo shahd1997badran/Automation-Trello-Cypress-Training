@@ -1,6 +1,9 @@
 class HideTemplateAssertions{
-    checkTemplateIsHidden(title){
-        //cy.contains(title).should("be")
+    checkTemplateIsHidden(templateTitle,listTitleHideFrom){
+        cy.get("[data-testid='lists']")
+            .find(`li:contains(${listTitleHideFrom})`)
+            .find('ol')
+            .should('not.contain',templateTitle);
         return this;
     }
 }

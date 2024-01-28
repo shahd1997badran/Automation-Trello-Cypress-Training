@@ -13,6 +13,7 @@ import HideTemplateActions from "../../../pageObjects/hideTemplate/actions.cy";
 let Random = Math.floor(Math.random()*100);
 const boardName ='Shahd Board'+Random;
 const templateTitle ='Shahd Template'+Random;
+const listTitleMoveFrom ="To Do";
 const sharedUtils= new SharedDataUtils();
 const sharedActions= new SharedActions();
 const createTemplateCardActions = new CreateTemplateCardActions();
@@ -50,7 +51,7 @@ When("Clicks on add button",()=>{
 
 });
 When("Clicks on template icon",()=>{
-    moveTemplateActions.clickOnTemplateIcon()
+    moveTemplateActions.clickOnTemplateIcon(templateTitle,listTitleMoveFrom)
 
 });
 When("Clicks on archive button",()=>{
@@ -59,5 +60,5 @@ When("Clicks on archive button",()=>{
 });
 
 Then("Template is hidden",()=>{
-    hideTemplateAssertions.checkTemplateIsHidden(templateTitle)
+    hideTemplateAssertions.checkTemplateIsHidden(templateTitle,listTitleMoveFrom)
 });
